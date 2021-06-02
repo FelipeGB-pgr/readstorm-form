@@ -1,0 +1,65 @@
+@font-face { 
+	font-family: 'Roboto Slab', serif;
+	src:  url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+}
+
+* {
+	box-sizing: border-box;
+	outline: 0;
+}
+
+body {
+	background-image: url("../images/library-bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-content: center;
+	line-height: 1.5rem;
+}
+
+form {
+	background: #fff;
+	padding: 20px;
+	border-radius: 6px;
+	margin-bottom: 30px;
+}
+
+.h2-form {
+	margin-top: 1rem;
+	margin-bottom: 4rem;
+	font-family: 'Roboto Slab', serif;
+	font-size: 30pt;
+}
+
+label {
+	font-weight: bold;
+}
+
+.half-display {
+	width: 50%;
+}
+
+.main-sec {
+	width: 100vw; 
+	height: 100%; 
+	max-width: 640px;
+	margin-top: 30px;
+	
+}
+
+div.show-errors{
+	margin: 1.5rem;
+}
+
+.ex-erros li {
+	font-size: 0.9rem;
+	list-style: none;
+	color: red;	
+}
+
+.btn-form {
+	position: center;
+	width: 100%;
+}
