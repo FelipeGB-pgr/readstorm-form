@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/main-style.css"></link>
+    <title>Readstorm</title>
+</head>
+
+<body>
+    <div id="app"></div>
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <script>
+         new Vue({
+            el:'#app',
+            template: `
+            <div class="container main-sec">
+                <form action="" v-on:submit.prevent="checkForm">
+                    <h2 class="text-center h2-form">Formulário de cadastro</h2>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="first-name">Nome:</label>
+                            <input type="text" class="form-control" name="first-name" id="first-name" v-model="name" placeholder="Nome completo">
+                        </div>
+                        <div class="form-group col-12">
+                           <label for="inp-email">Email:</label>
+                           <input type="email" class="form-control" id="inp-email" name="inp-email" v-model="email" placeholder="Email">
+                        </div>
+                        <div class="form-group col-12">
+                           <label for="inp-password">Senha:</label> 
+                           <input type="password" class="form-control" id="inp-password" name="inp-password" v-model="password" placeholder="Senha">
+                        </div>
+                        <div class="form-group col-12">
+                           <label for="inp-confirmpass">Confirme sua senha:</label> 
+                           <input type="password" class="form-control" id="inp-confirmpass" name="inp-confirmpass" v-model="confirmpass" placeholder="Digite sua senha novamente">
+                        </div>
+                        <div class="form-group col-12">
+                           <label for="inp-address">Endereço:</label> 
+                           <input type="text" class="form-control" id="inp-address" name="inp-address" v-model="address" placeholder="Digite o seu endereço">
+                        </div>
+                         <div class="form-group col-12">
+                           <label for="inp-city">Cidade:</label> 
+                           <input type="text" class="form-control" id="inp-city" name="inp-city" v-model="fd_city" placeholder="Nome da sua cidade">
+                        </div>
+                        <div class="form-group col-md-10 align-items-center">
+                            <label class="mr-sm-2" for="inlineFormCustomSelect">Escolha uma opção para o título desejado:</label>
+                            <select class="custom-select mr-sm-2 half-display" id="inlineFormCustomSelect">
+                                <option value="1">Cadastrar título</option>
+                                <option value="2">Reservar título</option>
+                          </select>
+                        </div>
+                    </div>
+                     <button type="submit" class="btn btn-primary btn-form">Enviar</button> 
+                     <div class="show-errors">
+                        <ul class="ex-erros">
+                            <li v-for="error in errors">{{error}}</li>
+                        </ul>
+                    </div>
+                </form>
+           </div>
+            `,
+            data: {
+                name: null,
+                email: null,
+                password: null,
+                confirmpass: null,
+                address: null,
+                fd_city: null,
+                errors: []
+            },
+            methods: {
+                checkForm: function() {
+                    this.errors = [];
+
+                    if(!this.name) {
+                        this.errors.push('[Erro]: O nome deve ser preenchido!');
+                    }
+
+                    if(!this.email) {
+                        this.errors.push('[Erro]: O email deve ser preenchido!');
+                    }
+
+                    if(!this.confirmpass) {
+                        this.errors.push('[Erro]: Você precisa confirmar a sua senha...');
+                    }
+
+                    if(!this.address) {
+                        this.errors.push('[Erro]: O campo (endereço), deve ser preenchido!');
+                    }
+
+
+                    if(!this.fd_city) {
+                        this.errors.push('[Erro]: O campo (cidade), deve ser preenchido!');
+                    }
+                }
+            }
+         })
+     </script>
+     
+</body>
